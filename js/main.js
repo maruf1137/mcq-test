@@ -118,7 +118,7 @@ const markup = `
 				return `
                <div class="mcq__box box">
 						<h3 class="heading mb-1">${id}. ${title}</h3>
-						<ul class="mcq__list">
+						<ul class="mcq__list mcq__list--${id}">
                      ${options
 												.map((item, i) => {
 													const numberId = '' + i + id;
@@ -150,18 +150,9 @@ mcqWrapper.addEventListener('click', (e) => {
 			corretAnswer: mcq_data[index].answer,
 			value,
 		};
-
-		const oldAnswer = answers.findIndex((item) => item.parent === index);
-
-		if (oldAnswer !== -1) {
-			answers[oldAnswer].corretAnswer = mcq_data[index].answer;
-			answers[oldAnswer].value = value;
-		} else {
-			answers.push(answer);
-		}
-		if (answers.length === mcq_data.length) {
-			btnFinish.classList.remove('btn-disabled');
-		}
+		answers.push(answer);
+		const parentEl = el.parentElement.parentElement;
+		parentEl.classList.add('disabled');
 	}
 });
 
@@ -175,7 +166,6 @@ btnFinish.addEventListener('click', () => {
 			score++;
 		}
 	}
-
 	localStorage.setItem('score', JSON.stringify(score));
 
 	location.pathname = 'result.html';

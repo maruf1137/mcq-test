@@ -265,4 +265,7 @@ h2.heading {
 .mcq-page .mcq__item input {
   border: 3px solid #000;
   cursor: pointer;
+}
+.mcq-page .mcq .disabled {
+  pointer-events: none;
 }/*# sourceMappingURL=style.css.map */
