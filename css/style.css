@@ -26,6 +26,16 @@
 html {
   font-size: 62.5%;
 }
+@media only screen and (max-width: 62em) {
+  html {
+    font-size: 52%;
+  }
+}
+@media only screen and (max-width: 35em) {
+  html {
+    font-size: 38%;
+  }
+}
 
 body {
   color: #000;
@@ -84,6 +94,9 @@ h2.heading {
   border-radius: 2rem;
   padding: 5.5rem 2.4rem;
   display: inline-block;
+  box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  margin: 0 auto;
 }
 
 .start-page {
@@ -195,6 +208,16 @@ h2.heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+@media only screen and (max-width: 25em) {
+  .mcq-page .mcq__time {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 .mcq-page .mcq__time--text {
   font-size: 3rem;
@@ -202,6 +225,11 @@ h2.heading {
   display: flex;
   justify-content: start;
   align-items: center;
+}
+@media only screen and (max-width: 25em) {
+  .mcq-page .mcq__time--text {
+    justify-content: center;
+  }
 }
 .mcq-page .mcq__time--text .text {
   margin-right: 1rem;
